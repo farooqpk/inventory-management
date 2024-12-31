@@ -1,40 +1,58 @@
-# Welcome to Remix!
+# Inventory Management System
 
-- 📖 [Remix docs](https://remix.run/docs)
+A simple inventory management system built with Remix.js, Postgres, and Shopify Polaris.
 
-## Development
+## Features
 
-Run the dev server:
+- List all products
+- Add new products
+- Edit product titles (double-click to edit)
+- Adjust product quantities
+- Delete products with confirmation
 
-```shellscript
+## Setup Instructions
+
+1. Clone the repository:
+```bash
+git clone https://github.com/farooqpk/inventory-management
+cd inventory-management
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Set up your database:
+   - Create a PostgreSQL database
+   - Copy `.env.example` to `.env`
+   - Update DATABASE_URL in `.env` with your PostgreSQL connection string
+
+4. Run database migrations:
+```bash
+npx prisma generate
+```
+
+5. Start the development server:
+```bash
 npm run dev
 ```
 
-## Deployment
+6. Visit `http://localhost:5173` in your browser
 
-First, build your app for production:
+## Implementation Details
 
-```sh
-npm run build
-```
+### Tech Stack
+- **Framework**: Remix.js with TypeScript
+- **Database**: PostgreSQL with Prisma ORM
+- **UI Framework**: Shopify Polaris
 
-Then run the app in production mode:
 
-```sh
-npm start
-```
+### Data Model
 
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-- `build/server`
-- `build/client`
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.
+The application uses a simple product model with the following fields:
+- id (String, primary key)
+- title (String)
+- quantity (Integer)
+- createdAt (DateTime)
+- updatedAt (DateTime)

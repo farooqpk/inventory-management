@@ -5,9 +5,16 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import type { LinksFunction } from "@remix-run/node";
+import type { LinksFunction, MetaFunction } from "@remix-run/node";
+import "@shopify/polaris/build/esm/styles.css";
+import { AppProvider } from "@shopify/polaris";
 
-import "./tailwind.css";
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Inventory Management" },
+    { name: "description", content: "Simple inventory management system" },
+  ];
+};
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -41,5 +48,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <AppProvider i18n={{}}>
+      <Outlet />
+    </AppProvider>
+  );
 }
