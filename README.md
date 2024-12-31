@@ -56,3 +56,16 @@ The application uses a simple product model with the following fields:
 - quantity (Integer)
 - createdAt (DateTime)
 - updatedAt (DateTime)
+
+## Project Structure
+
+```
+├── app/
+│   ├── routes/
+│   │   ├── _index.tsx      # Product listing page
+│   │   └── products.$id.tsx # Product edit page
+│   ├── root.tsx            # Root layout with Polaris setup
+│   └── db.server.ts        # Database configuration
+└── prisma/
+    └── schema.prisma       # Database schema
+```
